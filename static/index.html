@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Simple client</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item, index) in items" @click="getCost(index)">{{ item }}</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                items: [],
+            },
+            methods: {
+                getCost: function (i) {
+                    axios.get('/items/' + i + '/cost/').then(function (res) {
+                        alert('Cost: ' + res.data);
+                    });
+                }
+            },
+            created: function () {
+                axios.get('/items/').then(function (res) {
+                    app.items = res.data;
+                });
+            }
+        });
+    </script>
+</body>
+</html>

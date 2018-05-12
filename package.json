@@ -1,0 +1,20 @@
+{
+  "name": "SimplestShop",
+  "version": "0.1.0",
+  "description": "Simplest web shop",
+  "main": "index.js",
+  "author": {
+    "name": "KoroLion"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/KoroLion/simplestshop"
+  },
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.3",
+    "ws": "^5.1.1",
+  }
+}
